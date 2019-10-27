@@ -1,0 +1,62 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.header {
+    background-color: rgb(41, 40, 40);
+    width: 100%;
+    padding-bottom: 3px;
+    
+}
+.title {
+    color: white;
+    text-align: center;
+    padding-top: 11px;
+}
+.container{
+    margin: 0;
+}
+
+.col-3 {
+    background-color: rgb(226, 223, 223);
+    position: relative;
+    padding-bottom: 220px;
+    /* padding-right: 14px; */
+    /* width: 120%; */
+}
+
+.searchHeading {
+    font-size: 15px;
+}
+
+.searchBox{
+  position: absolute;
+  bottom: 199px;
+  left: 12px;
+}
+.searchBtn {
+  border-radius: 7px;
+  background-color:rgb(34, 105, 238);
+  border: none;
+  /* padding: 1px; */
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-left: 10px;
+  position: absolute;
+  bottom: 199px;
+  left: 210px;
+  padding-bottom: 2px;
+}
+.fa {
+    color: white;
+}
+
+.searchBtn:hover{
+    opacity: 0.6;
+
+}
+
+.col-9 {
+    padding-left: 45px;
+}

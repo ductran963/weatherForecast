@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel = 'stylesheet' type = 'text/css' href = './assets/css/style.css'>
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <div class= 'header' >
+        <h1 class = 'title'>Weather Dashboard</h1>
+    </div>
+    <div class='container'> 
+        <div class = 'row'>
+            <div class= 'col-3'> 
+                <p class = 'searchHeading'><strong>Search for a city:</strong></p>
+                
+                <form>
+                    <input type = 'textarea' placeholder="Search" class = 'searchBox' row='1' cols = '5'>
+                    <button class = 'searchBtn'><i class="fa fa-search"></i></button>
+                    
+                </form>
+                <ul id='city-list'></ul>
+            </div>
+            
+            <div class = 'col-9' >
+                <div class = 'row' id ='weatherInfo'>
+                </div>
+                <div class ='row' id='weatherImages'>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class='col-3'>
+                Search for a city:
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" id='city-input' type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="city-search" type="submit">City
+                        Name</button>
+                </form>
+                <ul id='city-list'></ul>
+            </div>
+            <div class="row">
+                <div class="col-12 main">
+                    <div class="jumbotron">
+                        <h1 id="main-title" class="display-4"></h1>
+                        <p id="main-temp" class="lead"></p>
+                        <p id="main-humidity" class="lead"></p>
+                        <p id="main-wind" class="lead"></p>
+                        <p id="main-UV" class="lead"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="5-day-content" class="row">
+            </div>
+        </div>
+    </div>
+     -->
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
