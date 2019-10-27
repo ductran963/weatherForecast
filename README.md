@@ -12,5 +12,5 @@ Link to github page: https://ductran963.github.io/weatherForecast/
 
 Password Generator image:
 
-![image info](./assets/images/weather.png)
+![image info](./assets/images/weather2.png)
 
