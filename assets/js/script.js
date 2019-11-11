@@ -1,33 +1,9 @@
-//API Key =cecc77009772e5320e98463eaff874a5
-//api.openweathermap.org/data/2.5/weather?q={city name}
-// var currentDay = moment().format('(M/D/YYYY)');
-// $('#weatherInfo').append(currentDay);
-renderSaveBtn1();
 
-// this function get values stored within text1 and append it to class description1
-function renderSaveBtn1() {
-    var cityList = $("<li>")
-    var cityLink = $("<a href=''>");
-    var storedCityLink = cityLink.append(localStorage.getItem("text1"));
-    var storedCityList = cityList.append(storedCityLink);
-    $("#city-list").append(storedCityList);
-    
-}
 
-//making ajax call on a click of a button and retrieve data
-$('.searchBtn').on('click', function (event) {
-    event.preventDefault();
-     //on click I want to save val from text box to local storage then I want to add it to the id= city list
-     
-     //this function set values submitDescription1 to text1 and call renderSaveBtn1 to get that value(stored in text1) and append it to whereever
-     
- 
-    var cityName = $('.searchBox').val();
-    localStorage.setItem("text1", cityName);
-    renderSaveBtn1();
-    
-
-    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&APPID=cecc77009772e5320e98463eaff874a5';
+var weatherArray = [];
+function displayWeatherInfo(){
+    var weather = $(this).attr("data-name");
+    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + weather + '&units=imperial&APPID=cecc77009772e5320e98463eaff874a5';
     // console.log(queryURL);
     $.ajax({ //making ajax call on a click of a button and retrieve data
         url: queryURL,
@@ -40,7 +16,7 @@ $('.searchBtn').on('click', function (event) {
         $("#weatherInfo").empty();
         var weatherDiv = $("<div class='weatherDiv'>");
         var currentDay = moment().format("(M/D/YYYY)");
-        var cityNameHeading = $("<p>").text(cityName + ' ' + currentDay).css({ "font-weight": "bold", "font-size": "36px" });
+        var cityNameHeading = $("<p>").text(weather + ' ' + currentDay).css({ "font-weight": "bold", "font-size": "36px" });
         weatherDiv.append(cityNameHeading);
         var temperature = response.main.temp;
         var pOne = $("<p>").text("Temperature: " + temperature + " °F");
@@ -70,7 +46,7 @@ $('.searchBtn').on('click', function (event) {
     });
 
     //Third ajax call to get weather forecasts for the next 5 days
-    var queryURL3 = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&APPID=cecc77009772e5320e98463eaff874a5';
+    var queryURL3 = 'https://api.openweathermap.org/data/2.5/forecast?q=' + weather + '&units=imperial&APPID=cecc77009772e5320e98463eaff874a5';
     $.ajax({
         url: queryURL3,
         method: "GET"
@@ -105,6 +81,59 @@ $('.searchBtn').on('click', function (event) {
         };
 
     });
+}
 
+
+function renderButtons(){
+    $("#city-list").empty();
+
+    // Looping through the array of weather
+    for (var i = 0; i < weatherArray.length; i++) {
+
+        
+        var cityList = $("<li>");
+        var a = $("<button>");
+       
+        a.addClass("weather-btn");
+        // Adding a data-attribute
+        a.attr("data-name", weatherArray[i]);
+        // Providing the initial button text
+
+        a.text(weatherArray[i]);
+       
+        // a.append(localStorage.getItem("text1"));
+        // Adding the button to the unorder city-list
+        cityList.append(a);
+        
+        $("#city-list").append(cityList);
+        
+        
+    }
+  
+    
+    
+    
+}
+
+$('.searchBtn').on('click', function (event) {
+    event.preventDefault();
+    displayWeatherInfo();
+ 
+    var weather = $('.searchBox').val().trim();
+    
+   
+    weatherArray.push(weather);
+   
+    renderButtons();
+  
+   
 });
+
+$(document).on("click", ".weather-btn", displayWeatherInfo);
+renderButtons();
+
+
+    
+
+
     
